@@ -6,7 +6,7 @@ import { IoStarHalfOutline } from "react-icons/io5";
 import { IoStarOutline } from "react-icons/io5";
 
 
-const Blog = ({blog}) => {
+const Blog = ({blog,handleBookmarks,handMarkAsRead}) => {
     return (
         <div className="mb-24">
             <div className="w-[300px] h-[500px] mx-auto">
@@ -27,7 +27,7 @@ const Blog = ({blog}) => {
 
                 <div className="flex items-center gap-3">
                      <p className="text-sm font-light">{blog.reading_time} min read</p>
-                     <CiBookmark/>
+                     <CiBookmark onClick={()=>handleBookmarks(blog)}></CiBookmark>
 
                 </div>
             </div>
@@ -47,6 +47,8 @@ const Blog = ({blog}) => {
                 blog.id===3 ? <IoStar></IoStar> : blog.id===2 ? <IoStarHalfOutline></IoStarHalfOutline> : <IoStarOutline></IoStarOutline>
             }
             </span>
+
+            <button onClick={()=>handMarkAsRead(blog)} className="underline text-blue-800 my-6">Mark as Read</button>
             </div>
             </div>
 
